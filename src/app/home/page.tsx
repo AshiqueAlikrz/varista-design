@@ -1,5 +1,4 @@
 import TeamExample from "@/components/home";
-import ImageRevealEffect from "@/components/ImageRevealEffect";
 import ButtonAppBar from "@/components/navbar";
 
 export default function Homepage() {
@@ -10,4 +9,5 @@ export default function Homepage() {
         {/* <ImageRevealEffect /> */}
     </div>
   );
-}
+} 
+ 
