@@ -15,7 +15,7 @@ import framesxTheme from "../helpers/theme";
 import HeroLeft01 from "../helpers/HeroLeft01";
 
 // Import your image
-import backgroundImage from "../assets/Home-1-slider-img-05.jpg";
+import backgroundImage from "../assets/Home-1-slider-img-05.png";
 
 export default function TeamExample() {
   return (

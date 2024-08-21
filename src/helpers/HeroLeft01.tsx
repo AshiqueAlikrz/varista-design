@@ -11,7 +11,7 @@ export default function HeroLeft01() {
   return (
     <TwoSidedLayout>
       <Typography sx={{ color: "white" }} fontSize="lg" fontWeight="lg">
-        The power to do more
+        Crafting Spaces of Distinction{" "}
       </Typography>
       <div className="h-auto w-5/6 xs:text-lg text-2xl text-white font-bold">
         <Typewriter
@@ -29,7 +29,7 @@ export default function HeroLeft01() {
         />
       </div>
       <Typography fontSize="lg" textColor="common.white" lineHeight="lg">
-        A descriptive secondary text placeholder. Use it to explain your business offer better.
+        UAE’s leading Interior design services provider at competitive prices.{" "}
       </Typography>
       <Button size="lg" sx={{ backgroundColor: "yellowgreen" }} endDecorator={<ArrowForward />}>
         Get Started
