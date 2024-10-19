@@ -30,7 +30,7 @@ export default function TeamExample() {
         },
       }}
     >
-      <div className="relative w-full h-screen  ">
+      <div className="relative w-full h-screen">
         <Image src={backgroundImage} alt="Background Image" layout="fill" objectFit="cover" className="absolute top-0 left-0 z-[-1] w-full h-screen object-cover " />
         <HeroLeft01 />
       </div>

@@ -4,6 +4,9 @@ const config: Config = {
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily: {
+        poppins: ['"Poppins"', "sans-serif"], // Add this line
+      },
       height: {
         "screen-130": "130vh",
       },
@@ -12,7 +15,7 @@ const config: Config = {
         "10xl": "1000px",
       },
       dropShadow: {
-        'custom': '0 4px 6px rgba(0, 0, 0, 0.7)', // Example of a black shadow
+        custom: "0 4px 6px rgba(0, 0, 0, 0.7)", // Example of a black shadow
       },
       screens: {
         xs: "480px", // Custom breakpoint for extra small screens

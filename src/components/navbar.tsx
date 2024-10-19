@@ -15,7 +15,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-import VaristaLogo from "../assets/varistalogo.png";
+import VaristaLogo from "../assets/alnoornew.png";
 
 interface Props {
   /**
@@ -39,14 +39,24 @@ export default function DrawerAppBar(props: Props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Box sx={{ my: 2, display: "flex", justifyContent: "center" }}>
-        <Image src={VaristaLogo} alt="" style={{ maxHeight: "40px", width: "50px" }} />
+        <Image
+          src={VaristaLogo}
+          alt="moosa-al-noor-logo"
+          style={{
+            maxHeight: "100px", // Increased height
+            width: "50px", // Increased width
+            filter: "brightness(0) invert(1)",
+          }}
+          width={250} // Updated width
+          height={250} // Updated height
+        />
       </Box>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding sx={{ fontFamily: "monospace" }}>
+          <ListItem key={item} disablePadding sx={{ fontFamily: "Poppins !important" }}>
             <ListItemButton href={`/${item.toLowerCase()}`} sx={{ textAlign: "left" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item} sx={{ fontFamily: "Poppins !important" }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -72,13 +82,20 @@ export default function DrawerAppBar(props: Props) {
           </IconButton>
           {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
           </Typography> */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            <Image src={VaristaLogo} alt="" style={{ maxHeight: "40px", width: "50px" }} />
-          </Box>
+          <div className="flex justify-end md:justify-start flex-grow">
+            <Image src={VaristaLogo} alt="" className="h-[70px] w-[120px] md:h-[100px] md:w-[170px]" />
+          </div>
 
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" }, // Hide on extra small screens, show as flex on small and larger screens
+              gap: 3, // Gap between flex items
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
             {navItems.map((item) => (
-              <Button key={item} href={`/${item.toLowerCase()}`} sx={{ color: "#fff", fontFamily: "sans-serif" }}>
+              <Button key={item} href={`/${item.toLowerCase()}`} sx={{ color: "#fff" }} className="!font-poppins">
                 {item}
               </Button>
             ))}
