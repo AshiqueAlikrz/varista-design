@@ -9,31 +9,71 @@ import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <div className="relative w-full h-screen overflow-hidden ">
-      <ButtonAppBar />
-      <div className="absolute inset-0">
-        <Image src={AboutPageBg} alt="Background Image" layout="fill" objectFit="cover" className="z-0" />
-      </div>
-      <div className="relative justify-center items-center flex-wrap flex w-full h-full bg-black bg-opacity-80">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 1 }} className="flex   sm:flex-row w-full sm:w-4/6 h-5/6 mt-3 bg-white rounded-2xl">
-          <motion.div
-            initial={{ x: -600, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1.2 }}
-            className="hidden xl:block 2xl:block lg:block w-2/6 h-full bg-black relative rounded-2xl"
-          >
-            <Image src={complimentrySofaImage} alt="" layout="fill" objectFit="cover" className="absolute inset-0 rounded-l-2xl" />
-          </motion.div>
-          <motion.div
-            initial={{ x: 600, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1.2 }}
-            className=" flex justify-center items-center xs:w-full ms:w-full w-4/6 rounded-2xl"
-          >
-            <ContactForm />
-          </motion.div>
-        </motion.div>
-      </div>
+    <div className="containermy-12 mx-auto px-2 md:px-4 h-screen ">
+      <section className="flex justify-center items-center h-full flex-col gap-3 ">
+        <div className="flex justify-center">
+          <div className="text-center md:max-w-xl lg:max-w-3xl">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">Contact us :</h1>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap">
+          <form className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
+            <div className="mb-3 w-full">
+              <label className="block font-medium mb-[2px] text-teal-700" htmlFor="nameInput">
+                Name
+              </label>
+              <input type="text" className="px-2 py-2 border w-full outline-none rounded-md" id="nameInput" placeholder="Name" />
+            </div>
+
+            <div className="mb-3 w-full">
+              <label className="block font-medium mb-[2px] text-teal-700" htmlFor="emailInput">
+                Email
+              </label>
+              <input type="email" className="px-2 py-2 border w-full outline-none rounded-md" id="emailInput" placeholder="Enter your email address" />
+            </div>
+
+            <div className="mb-3 w-full">
+              <label className="block font-medium mb-[2px] text-teal-700" htmlFor="messageInput">
+                Message
+              </label>
+              <textarea className="px-2 py-2 border rounded-[5px] w-full outline-none" id="messageInput" placeholder="Your message" />
+            </div>
+
+            <button type="button" className="mb-6 inline-block w-full rounded bg-teal-400 px-6 py-2.5 font-medium uppercase leading-normal text-white hover:shadow-md hover:bg-teal-500">
+              Send
+            </button>
+          </form>
+
+          <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
+            <div className="flex flex-wrap">
+              {[
+                { title: "Technical support", email: "support@example.com" },
+                { title: "Sales questions", email: "sales@example.com" },
+                { title: "Press", email: "press@example.com" },
+                { title: "Bug report", email: "bugs@example.com" },
+              ].map((contact, index) => (
+                <div key={index} className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
+                  <div className="flex items-start">
+                    <div className="shrink-0">
+                      <div className="inline-block rounded-md bg-teal-400-100 p-4 text-teal-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-6 w-6">
+                          {/* SVG paths (use appropriate icons for each contact type) */}
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-6 grow">
+                      <p className="mb-2 font-bold">{contact.title}</p>
+                      <p className="text-neutral-500">{contact.email}</p>
+                      <p className="text-neutral-500">+1 234-567-89</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

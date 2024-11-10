@@ -1,18 +1,39 @@
 "use client";
-import TeamExample from "@/components/home";
 import ButtonAppBar from "@/components/navbar";
 import AboutPageBg from "../../assets/italian-luxury-designer-bedroom-furniture-1500x800.jpg";
-import Image from "next/image";
 import InteriorDesignImage from "../../assets/interior-design-proposal-1024x682.webp";
 import ModernInteriorDesign from "../../assets/modern-interior-design-grey-living-room2-scaled.jpeg";
 import KitchenDesign from "../../assets/kitchen-with-small-space-modern-design_23-2150710611.jpg";
 import HospitalDesign from "../../assets/clinic1.jpg";
 import Exhibition from "../../assets/exhibition.jpg";
 import { useRef, useState } from "react";
-import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import Ac from "../../assets/services/ac.jpg";
+import Plaster from "../../assets/services/plastring.jpg";
+import WallTiling from "../../assets/services/wall tailing.jpg";
+import Plumbing from "../../assets/services/plumbing-professional-doing-his-job.jpg";
+import FalseCeiling from "../../assets/services/false ceiling.webp";
+import Painting from "../../assets/services/paitning.webp";
+import Renovation from "../../assets/services/rennovation.jpg";
+import Carpentry from "../../assets/services/carpentry.jpg";
 
-export default function Homepage() {
+const cardData = [
+  {
+    title: "Plumbing & Sanitary Services",
+    description: "Expert plumbing services ensuring optimal water flow and sanitation, along with professional sanitary installations to enhance your bathroom experience.",
+    imageUrl: Plumbing.src,
+  },
+  { title: "Plaster Work", description: "Quality plaster work to give your walls a smooth and flawless finish.", imageUrl: Plaster.src },
+  { title: "Floor & Wall Tiling Works", description: "Precision floor and wall tiling works for an elegant and modern look.", imageUrl: WallTiling.src },
+  { title: "False Ceiling & Light Partitions Installation", description: "Creative false ceiling designs and light partitions for enhanced aesthetics.", imageUrl: FalseCeiling.src },
+  { title: "Carpentry & Wood Flooring Works", description: "Custom carpentry and wood flooring services to elevate your interiors.", imageUrl: Carpentry.src },
+  { title: "Air Conditioning Ventilations & Air Filtration System Installation", description: "Professional air conditioning and ventilation installations for optimal comfort.", imageUrl: Ac.src },
+  { title: "Painting Contracting", description: "Comprehensive painting contracting services to refresh and beautify your spaces.", imageUrl: Painting.src },
+  { title: "Renovation Services", description: "Full renovation services to transform your space into your dream environment.", imageUrl: Renovation.src },
+];
+
+export default function ServicePage() {
   const servicesData = [
     {
       image: ModernInteriorDesign,
@@ -40,25 +61,13 @@ export default function Homepage() {
     },
   ];
 
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index: any) => ({
       opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.1,
-        staggerChildren: 0.7,
-      },
-    },
-  };
-
-  const items = {
-    hidden: { y: -800, opacity: 0 },
-    visible: {
       y: 0,
-      opacity: 1,
-      scrollY: false,
-    },
+      transition: { delay: index * 0.1 },
+    }),
   };
 
   const [selectedTab, setSelectedTab] = useState(servicesData[0]);
@@ -66,33 +75,26 @@ export default function Homepage() {
   const isInViewText = useInView(ref);
 
   return (
-    <div className="relative w-full min-h-screen overflow-x-hidden">
-      <ButtonAppBar />
-      <div ref={ref} className="absolute inset-0  min-h-screen w-full ">
-        <Image src={AboutPageBg} alt="Background Image" layout="fill" objectFit="cover" className="z-0" />
-        <div className="relative flex flex-col justify-center items-center w-full min-h-screen bg-black bg-opacity-80">
+    <div className="w-full h-screen md:min-h-[80vh] lg:min-h-screen p-6 md:p-10 flex flex-col items-center justify-center bg-cover bg-center">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center text-sky-900 mb-6">Dedicated Technical Services</h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-5xl h-full">
+        {cardData.map((card, index) => (
           <motion.div
-            ref={ref}
-            variants={container}
+            key={index}
+            className={cn("relative h-44 sm:h-56 md:h-64 rounded-md shadow-lg flex flex-col justify-end p-4 bg-cover bg-center")}
+            style={{ backgroundImage: `url(${card.imageUrl})` }}
+            variants={cardVariants}
             initial="hidden"
-            animate={isInViewText && "visible"}
-            // viewport={{ once: true }}
-            className="flex flex-col lg:flex-row xl:w-11/12 2xl:w-10/12 justify-center items-center flex-wrap gap-4 p-4"
+            animate="visible"
+            custom={index}
           >
-            {servicesData.map((item, index) => (
-              <motion.div key={index} ref={ref} transition={{ duration: 2 }} variants={items} className="flex flex-col lg:flex-row w-full lg:w-5/12 bg-black bg-opacity-30 mb-4 rounded-lg ">
-                <div className="flex-shrink-0 w-full lg:w-2/6 h-52 bg-black ">
-                  <Image src={item.image} alt={item.title} className="object-cover w-full h-full rounded-l-xl" />
-                </div>
-
-                <div className="p-4 flex-grow">
-                  <h1 className="text-lg lg:text-xl lg:text-white font-bold text-white">{item.title}</h1>
-                  <h3 className="text-sm lg:text-md  xs:text-white ms:text-white lg:text-gray-400 xl:text-gray-400 mt-2">{item.description}</h3>
-                </div>
-              </motion.div>
-            ))}
+            <div className="absolute w-full h-full top-0 left-0 bg-black opacity-50"></div>
+            <div className="text-white relative z-10">
+              <h2 className="text-lg sm:text-xl font-semibold">{card.title}</h2>
+              <p className="text-xs sm:text-sm">{card.description}</p>
+            </div>
           </motion.div>
-        </div>
+        ))}
       </div>
     </div>
   );

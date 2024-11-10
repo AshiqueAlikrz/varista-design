@@ -1,86 +1,64 @@
 "use client";
 import Image from "next/image";
-import AboutPageBg from "../../assets/home-office-furniture-desk-chair-table.jpg";
+import RightImage from "../../assets/home-office-furniture-desk-chair-table.jpg";
+import LeftImage from "../../assets/home-office-furniture-desk-chair-table.jpg";
 import ButtonAppBar from "@/components/navbar";
 import CustomImageList from "@/components/imageView";
 import ScrollView from "@/components/scrollPreview";
 import CartoonBoy from "../../assets/cartoon-kid.png";
 import { motion } from "framer-motion";
+// import AboutPageBg from '../../assets/top-view-curious-young-worker-uniform-with-hard-hat-pointing-up-right-side-isolated-red-wall.jpg'
+
+const teamImage = "https://via.placeholder.com/600x400?text=Our+Team"; // Placeholder image
+const missionImage = "https://via.placeholder.com/600x400?text=Our+Mission"; // Placeholder image
+const servicesImage = "https://via.placeholder.com/600x400?text=Our+Services"; // Placeholder image
+
+const teamDescription =
+  "We are a dedicated team of tech enthusiasts committed to providing top-notch technical services to our clients. With years of experience in the industry, we leverage the latest technologies to solve complex problems and deliver exceptional results.";
+const missionDescription = "Our mission is to empower businesses through innovative technology solutions. We strive to deliver high-quality services that enhance productivity and drive growth.";
+const servicesDescription =
+  "We offer a wide range of technical services including software development, IT consulting, system integration, and support. Our team works closely with you to understand your needs and tailor solutions that fit perfectly.";
 
 export default function AboutPage() {
   return (
-    <div className="relative w-full h-screen overflow-hidden ">
-      <ButtonAppBar />
-      <div className="absolute inset-0">
-        <Image src={AboutPageBg} alt="Background Image" layout="fill" objectFit="cover" className="z-0" />
-      </div>
-      <div className="relative flex-wrap flex w-full h-full bg-black bg-opacity-70">
-        <div className="flex flex-col items-center justify-center p-4 xs:p-16 ms:pt-16 sm:pt-16 md:pt-20 lg:pt-20  xl:pt-28  w-full  md:w-full lg:w-1/2 text-center text-white">
-          <motion.h1
-            className="text-2xl xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-5xl font-bold mb-2"
-            initial={{ y: -200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1.8 }}
-          >
-            WHO
-            <span className="text-yellow-300"> WE ARE ?</span>
-          </motion.h1>
-
-          <motion.p
-            className="text-sm xs:text-base sm:text-base md:text-base lg:text-base mb-4"
-            initial={{ y: -200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 1.8 }}
-          >
-            VARISTA DESIGNS is the creative & technical division of Varista Group, a group with diversified business interests. We offer modular and bespoke solutions to suit individual client needs.
-            We build and deliver quality, modern, and creative trade show exhibition stands, interior fit-outs, and events across the GCC, Germany, UK, and India.
-          </motion.p>
-          <motion.h1
-            initial={{ y: -200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1.6 }}
-            className="text-2xl xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-5xl font-bold mb-2"
-          >
-            WHAT
-            <span className="text-yellow-300"> WE DO ?</span>
-          </motion.h1>
-          <motion.p
-            initial={{ y: -200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1.4 }}
-            className="text-sm xs:text-base sm:text-base md:text-base lg:text-base mb-4"
-          >
-            Exhibition Stand Design: We provide complete 3D modeling & rendering of preliminary stand designs with modifications until the final product. On-site support and, upon client demand, we
-            provide Audio/Video systems & special effects.
-          </motion.p>
-          <motion.h1
-            initial={{ y: -200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1, duration: 1.2 }}
-            className="text-2xl xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-5xl font-bold mb-2"
-          >
-            OUR
-            <span className="text-yellow-300"> MISSION</span>
-          </motion.h1>
-          <motion.p
-            initial={{ y: -200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.2, duration: 1 }}
-            className="text-sm xs:text-base sm:text-base md:text-base lg:text-base mb-4"
-          >
-            We offer modular and bespoke solutions to suit individual client needs. We have different divisions catering to Exhibitions, Events, Interiors, and in-house production services (joinery
-            and digital graphics) offering a powerful mix of solutions and a stress-free environment. We are economical with budgets, keep deadlines, and generally exceed client expectations. We pride
-            ourselves on the quick implementation of projects, professionalism, and attention to detail.
-          </motion.p>
-        </div>
-        <motion.div
-          initial={{ y: 300, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.7 }}
-          className="flex flex-col justify-center w-full items-center  ms:w-full xs:w-full md:w-full lg:w-1/2 h-full"
+    <div className="container  h-screen mx-auto flex justify-center items-center flex-col  md:p-0 gap-3">
+      <h1 className="text-4xl font-bold text-sky-900 mb-4">What the Owner Says :</h1>
+      <div className="shadow-lg flex flex-wrap w-full lg:w-4/5 mx-auto h-4/6">
+        <div
+          className="bg-cover bg-bottom border w-full md:w-1/3 h-64 md:h-auto relative"
+          style={{
+            backgroundImage:
+              "url('https://img.freepik.com/free-photo/smiling-young-male-professional-standing-with-arms-crossed-while-making-eye-contact-against-isolated-background_662251-838.jpg?ga=GA1.1.2019140114.1709804061&semt=ais_hybrid')",
+          }}
         >
-          <Image src={CartoonBoy} alt="" layout="responsive" className="p-14 drop-shadow-custom hidden lg:block xl:p-20 lg:p-2" />
-        </motion.div>
+          <div className="absolute text-xl">
+            <i className="fa fa-heart text-white hover:text-red-light ml-4 mt-4 cursor-pointer"></i>
+          </div>
+        </div>
+
+        <div className="bg-white w-full md:w-2/3 h-full">
+          <div className="h-full mx-auto px-6 md:px-0 md:pt-6 md:-ml-6 relative">
+            <div className="bg-white  lg:h-full p-6 -mt-6 md:mt-0 relative mb-4 md:mb-0 flex flex-wrap gap-10 md:flex-wrap items-center">
+              <div className="w-full lg:w-1/5 lg:border-right lg:border-solid text-center md:text-center">
+                <h3 className="text-lg">- Moosa Al Noor</h3>
+                <p className="mb-0 mt-3 text-gray-500 text-sm">Dubai</p>
+                <hr className="w-1/4 md:ml-0 mt-4 border lg:hidden" />
+              </div>
+
+              <div className="w-full lg:w-3/5 lg:px-3">
+                <p className="text-md mt-4 lg:mt-0 text-justify md:text-left text-sm">
+                  "We pride ourselves on delivering exceptional plumbing services tailored to your needs. With 5 years of experience, our skilled technicians provide efficient solutions for everything
+                  from minor leaks to complete installations. We focus on customer satisfaction, offering prompt service with transparent pricing. Trust us to keep your plumbing systems running
+                  smoothly—your comfort is our priority."
+                </p>
+              </div>
+
+              {/* <div className="w-full lg:w-1/5 mt-6 lg:mt-0 lg:px-4 text-center md:text-left">
+                <button className="bg-white hover:bg-grey-darker hover:text-white border border-solid border-grey w-1/3 lg:w-full py-2">Visit now</button>
+              </div> */}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

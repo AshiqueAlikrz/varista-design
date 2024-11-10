@@ -4,7 +4,7 @@ import Box from "@mui/joy/Box";
 import Container from "@mui/joy/Container";
 import { typographyClasses } from "@mui/joy/Typography";
 import Image from "next/image";
-import backgroundImage from "../assets/1722694687719_banner-1.png";
+import backgroundImage from "../assets/worker.png";
 import { motion } from "framer-motion";
 
 export default function TwoSidedLayout({ children, reversed }: React.PropsWithChildren<{ reversed?: boolean }>) {
@@ -51,9 +51,9 @@ export default function TwoSidedLayout({ children, reversed }: React.PropsWithCh
           {children}
         </Box>
       </motion.div>
-      <motion.div initial={{ x: "400px", opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1.5 }} className="flex justify-center items-center">
-        <Image src={backgroundImage} alt="" height={600} width={600} />
-      </motion.div>
+      {/* <motion.div initial={{ x: "400px", opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 1.5 }} className="flex justify-center items-center">
+        <Image src={backgroundImage} alt="" height={400} width={400} />
+      </motion.div> */}
     </Container>
   );
 }

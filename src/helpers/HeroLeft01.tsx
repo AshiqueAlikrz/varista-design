@@ -1,45 +1,40 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import * as React from "react";
-import Button from "@mui/joy/Button";
-import Link from "@mui/joy/Link";
-import Typography from "@mui/joy/Typography";
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import TwoSidedLayout from "../components/TwoSidedLayout";
-import { Typewriter } from "react-simple-typewriter";
+"use client";
+import { ClassNames } from "@emotion/react";
+import { TypewriterEffect } from "../components/ui/typewriter-effect";
+
 
 export default function HeroLeft01() {
+  const words = [
+    {
+      text: "Best",
+      className: "text-white",
+    },
+    {
+      text: "technical",
+      className: "text-white",
+    },
+    {
+      text: "service ",
+      className: "text-white",
+    },
+    {
+      text: "in",
+      className: "text-black",
+    },
+    {
+      text: "Dubai.",
+      className: "text-yellow-300 dark:text-yellow-300",
+    },
+  ];
+
   return (
-    <TwoSidedLayout>
-      <Typography sx={{ color: "white" }} fontSize="lg" fontWeight="lg">
-        Crafting Spaces of Distinction{" "}
-      </Typography>
-      <div className="h-auto w-5/6 xs:text-lg text-2xl text-white font-bold">
-        <Typewriter
-          words={[
-            "Modern Interior Designs: Crafting Stylish & Functional Spaces.",
-            "Innovative Kitchen Designs for Every Home.",
-            "Your Dream Kitchen Starts Here: Custom Designs & Inspiration.",
-            "Bespoke Interior Design: Tailored to Your Lifestyle.",
-          ]}
-          loop={5}
-          cursor
-          typeSpeed={100}
-          deleteSpeed={50}
-          delaySpeed={1000}
-        />
+    <div className="flex flex-col items-center justify-center h-[40rem] ">
+      {/* <p className="text-white text-base  mb-10">The road to freedom starts from here</p> */}
+      <TypewriterEffect words={words} />
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-10">
+        <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">Join now</button>
+        <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">Signup</button>
       </div>
-      <Typography fontSize="lg" textColor="common.white" lineHeight="lg">
-        UAE’s leading Interior design services provider at competitive prices.{" "}
-      </Typography>
-      <Button size="lg" sx={{ backgroundColor: "yellowgreen" }} endDecorator={<ArrowForward />}>
-        Get Started
-      </Button>
-      <Typography sx={{ color: "white" }}>
-        Already a member?{" "}
-        <Link textColor={"common.white"} fontWeight="lg">
-          Sign in
-        </Link>
-      </Typography>
-    </TwoSidedLayout>
+    </div>
   );
 }
